@@ -1,17 +1,26 @@
+// jQ and HTML test
+
 // $('h1').click(function(){
 // 	alert('hi');
 // });
+
+
+// hide start button
+$('#startGame').click(function(){
+	$('#startGame').hide();
+});
+
 
 // Timer
 $('#startGame').on('click', function () {
 
 var fragmentTime;
 
-$('.timeout_message_show').hide();
+$('.timeoutMessageShow').hide();
 
-var minutes = jQuery('span.minute').text();
+var minutes = $('span.minute').text();
 
-var seconds = jQuery('span.second').text();
+var seconds = $('span.second').text();
 
 minutes = parseInt(minutes);
 seconds = parseInt(seconds);
@@ -51,15 +60,19 @@ seconds = seconds < 10 ? "0" + seconds : seconds;
 displayMinute.textContent = minutes;
 displaySecond.textContent = seconds;
 
-if (--timer < 0) {
+if (--timer < 0) { //this effectively ends the game
 timer = 0;
 if (timer == 0) {
 clearInterval(timeIntervalID);
-alert(jQuery('.timeout_message_show').text());
+alert($('.timeoutMessageShow').text());
       }
     }
   }, 1000);
 }
+
+
+
+
 // Game
 $('#startGame').on('click', function () {
   const myQuestions = [
@@ -84,9 +97,9 @@ $('#startGame').on('click', function () {
     {
       question: "Which is the best Star Wars character",
       answers: {
-        a: "Jar-Jar",
-        b: "An Ewok",
-        c: "Darth Vader",
+        a: "Jar Jar Binks",
+        b: "Ewok #6",
+        c: "Boss Nass",
         d: "The one who loves Star Trek"
       },
       correctAnswer: "d"
@@ -94,17 +107,17 @@ $('#startGame').on('click', function () {
   ];
 
   function buildQuiz() {
-    // we'll need a place to store the HTML output
+    // place to store the HTML output
     const output = [];
 
-    // for each question...
+    // for each question. store the answer choices
     myQuestions.forEach((currentQuestion, questionNumber) => {
-      // we'll want to store the list of answer choices
+      // store the list of answer choices
       const answers = [];
 
-      // and for each available answer...
+      // for each available answer
       for (letter in currentQuestion.answers) {
-        // ...add an HTML radio button
+        // add an HTML radio button
         answers.push(
           `<label>
              <input type="radio" name="question${questionNumber}" value="${letter}">
@@ -123,7 +136,7 @@ $('#startGame').on('click', function () {
       );
     });
 
-    // finally combine our output list into one string of HTML and put it on the page
+    // combine output list into one string of HTML and put it on the page
     quizContainer.innerHTML = output.join("");
   }
 
@@ -134,7 +147,7 @@ $('#startGame').on('click', function () {
     // keep track of answers
     let numCorrect = 0;
 
-    // for each question...
+    // for each question
     myQuestions.forEach((currentQuestion, questionNumber) => {
       // find selected answer
       const answerContainer = answerContainers[questionNumber];
@@ -146,7 +159,7 @@ $('#startGame').on('click', function () {
         // add to the number of correct answers
         numCorrect++;
 
-        // color the answers green
+        // color the correct answers green
         answerContainers[questionNumber].style.color = "lightgreen";
       } else {
         // if answer is wrong or blank
@@ -158,6 +171,9 @@ $('#startGame').on('click', function () {
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
+
+
+
 // Slide animations
   function showSlide(n) {
     slides[currentSlide].classList.remove("active-slide");
@@ -187,7 +203,9 @@ $('#startGame').on('click', function () {
     showSlide(currentSlide - 1);
   }
 
+  // HTML where the game goes
   const quizContainer = document.getElementById("quiz");
+  // HTML where the results go
   const resultsContainer = document.getElementById("results");
   const submitButton = document.getElementById("submit");
 
@@ -198,6 +216,7 @@ $('#startGame').on('click', function () {
   const previousButton = document.getElementById("previous");
   const nextButton = document.getElementById("next");
   const slides = document.querySelectorAll(".slide");
+  // 'let' declares a block scope local variable, optionally initializing it to a value.
   let currentSlide = 0;
 
   showSlide(0);

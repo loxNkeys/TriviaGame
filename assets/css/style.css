@@ -9,13 +9,15 @@ body{
   background-color: #333333;
 }
 
+.hideMe {display: none}
+
 h1{
-  font-weight: 300;
+  font-weight: 700;
   margin: 0px;
   padding: 10px;
   font-size: 20px;
   background-color: #444;
-  color: #fff;
+  color: #949494;
 }
 
 .question{
@@ -37,12 +39,14 @@ h1{
 button{
   font-family: 'Work Sans', sans-serif;
     font-size: 22px;
-    background-color: #e2e2e2;
+    font-weight: 600;
+    background-color: #949494;
     color: #333333;
     border: 0px;
     border-radius: 3px;
     padding: 20px;
     cursor: pointer;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 
@@ -64,7 +68,7 @@ button:hover{
   z-index: 2;
 }
 
-.quiz-container{
+.quizContainer{
   position: relative;
   height: 200px;
   margin-top: 40px;
