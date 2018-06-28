@@ -1,8 +1,8 @@
 // jQ and HTML test
 
-// $('h1').click(function(){
-// 	alert('hi');
-// });
+$('h1').click(function(){
+	alert('Hello, Please play a quick trivia game.Answer three questions in one minute. Your score will be displayed at the end; the questions you answered correctly will be green, the incorrect ones will be red. You may go to previous questions. Hit the submit button when yor done. Good Luck!');
+});
 
 
 // hide start button
@@ -57,8 +57,8 @@ minutes = parseInt(timer / 60, 10)
 seconds = parseInt(timer % 60, 10);
 minutes = minutes < 10 ? "0" + minutes : minutes;
 seconds = seconds < 10 ? "0" + seconds : seconds;
-displayMinute.textContent = minutes;
-displaySecond.textContent = seconds;
+$('.minute').text(minutes);
+$('.second').text(seconds);
 
 if (--timer < 0) { //this effectively ends the game
 timer = 0;

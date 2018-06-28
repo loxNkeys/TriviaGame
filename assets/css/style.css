@@ -18,6 +18,7 @@ h1{
   font-size: 20px;
   background-color: #444;
   color: #949494;
+  cursor: pointer;
 }
 
 .question{
