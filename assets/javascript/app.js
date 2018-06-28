@@ -1,7 +1,7 @@
 // jQ and HTML test
 
 $('h1').click(function(){
-	alert('Hello, Please play a quick trivia game.Answer three questions in one minute. Your score will be displayed at the end; the questions you answered correctly will be green, the incorrect ones will be red. You may go to previous questions. Hit the submit button when yor done. Good Luck!');
+	alert('Hello, Please play a quick trivia game. Answer three questions in one minute. Your score will be displayed at the end; the questions you answered correctly will be green, the incorrect ones will be red. You may go to previous questions. Hit the submit button when yor done. Good Luck!');
 });
 
 
