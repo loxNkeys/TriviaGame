@@ -14,7 +14,7 @@ $('#startGame').click(function(){
 // Timer
 $('#startGame').on('click', function () {
 
-var fragmentTime;
+var fragTime;
 
 $('.timeoutMessageShow').hide();
 
@@ -40,13 +40,13 @@ if (seconds == 60) {
 seconds = 59;
 }
 
-fragmentTime = (60 * minutes) + (seconds);
+fragTime = (60 * minutes) + (seconds);
 
-displayMinute = document.querySelector('span.minute');
+displayMinute = $('span.minute');
 
-displaySecond = document.querySelector('span.second');
+displaySecond = $('span.second');
 
-startTimer(fragmentTime, displayMinute, displaySecond);
+startTimer(fragTime, displayMinute, displaySecond);
 });
 
 function startTimer(duration, displayMinute, displaySecond) {
@@ -215,7 +215,7 @@ $('#startGame').on('click', function () {
 
   const previousButton = document.getElementById("previous");
   const nextButton = document.getElementById("next");
-  const slides = document.querySelectorAll(".slide");
+  const slides = $(".slide");
   // 'let' declares a block scope local variable, optionally initializing it to a value.
   let currentSlide = 0;
 
