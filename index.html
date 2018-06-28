@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Trivia Game</title>	
+	<title>Trivia Game</title>
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	
+	<h1>TRIVIA</h1>
+	<button id="startGame">start</button>
+	<div class="timer-container" id="#run-the-timer">
+		<span class="minute">02</span>:<span class="second">00</span>
+		<span class="timeout_message_show" style="display:none;">Time is up. Reload to try again.
+		</span>
+	</div>	
+	<div class="quiz-container">
+	  <div id="quiz"></div>
+	</div>
+	<button id="previous">Previous Question</button>
+	<button id="next">Next Question</button>
+	<button id="submit">Submit Quiz</button>
+	<div id="results"></div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+	<script src="assets/javascript/app.js"></script>	
 </body>
 </html>
