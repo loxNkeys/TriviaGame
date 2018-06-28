@@ -73,7 +73,7 @@ $('#startGame').on('click', function () {
       correctAnswer: "c"
     },
     {
-      question: "What pi?",
+      question: "What is pi?",
       answers: {
         a: "Delicious",
         b: "Eww! Gross! Cake all day!",
