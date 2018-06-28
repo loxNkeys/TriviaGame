@@ -18,11 +18,11 @@ var fragTime;
 
 $('.timeoutMessageShow').hide();
 
-var minutes = $('span.minute').text();
+var minutes = $('span.minute').text(); //get the minutes from HTML
 
-var seconds = $('span.second').text();
+var seconds = $('span.second').text(); //get the seconds from HTML
 
-minutes = parseInt(minutes);
+minutes = parseInt(minutes); //good practice to use parseInt to avoid possible issues
 seconds = parseInt(seconds);
 
 if (isNaN(minutes)) {
@@ -32,29 +32,31 @@ if (isNaN(seconds)) {
 seconds = 00;
 }
 
-if (minutes == 60) {
+if (minutes == 60) { //don't want to display 60 minutes 
 minutes = 59;
 }
 
-if (seconds == 60) {
+if (seconds == 60) { //don't want to display 60 seconds, instead display 1 minute
 seconds = 59;
 }
 
 fragTime = (60 * minutes) + (seconds);
+// debugger;
+displayMinute = $('.minute');
 
-displayMinute = $('span.minute');
-
-displaySecond = $('span.second');
+displaySecond = $('.second');
 
 startTimer(fragTime, displayMinute, displaySecond);
 });
 
 function startTimer(duration, displayMinute, displaySecond) {
-var timer = duration,
-displayMinute, displaySecond;
+var timer = duration, displayMinute, displaySecond;
 var timeIntervalID = setInterval(function () {
-minutes = parseInt(timer / 60, 10)
+// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt for use of parseInt  
+minutes = parseInt(timer / 60, 10) //converts 60 seconds to one minute
+// debugger;
 seconds = parseInt(timer % 60, 10);
+// debugger;
 minutes = minutes < 10 ? "0" + minutes : minutes;
 seconds = seconds < 10 ? "0" + seconds : seconds;
 $('.minute').text(minutes);
@@ -67,7 +69,7 @@ clearInterval(timeIntervalID);
 alert($('.timeoutMessageShow').text());
       }
     }
-  }, 1000);
+  }, 1000); //1000 => increments by the second instead of milisecond
 }
 
 
@@ -144,7 +146,7 @@ $('#startGame').on('click', function () {
     // gather answer containers from our quiz
     const answerContainers = quizContainer.querySelectorAll(".answers");
 
-    // keep track of answers
+    // keep track of answers. let is used to make variable local and initialize to zero
     let numCorrect = 0;
 
     // for each question
@@ -161,7 +163,8 @@ $('#startGame').on('click', function () {
 
         // color the correct answers green
         answerContainers[questionNumber].style.color = "lightgreen";
-      } else {
+      } 
+      else {
         // if answer is wrong or blank
         // color the answers red
         answerContainers[questionNumber].style.color = "red";
@@ -169,6 +172,8 @@ $('#startGame').on('click', function () {
     });
 
     // show number of correct answers out of total
+    // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals for string literals
+    // note the grave symbol
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
 
